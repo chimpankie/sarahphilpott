@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarah Philpott | Copywriter & Proofreader</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- VARIABLES --- */
+        :root {
+            --bg-color: #fcfbf9; /* Warm off-white, paper-like */
+            --text-color: #2c2c2c;
+            --accent-color: #8c3a3a; /* Muted red/brick for emphasis */
+            --secondary-bg: #e8e6e1;
+            --nav-height: 80px;
+        }
+
+        /* --- RESET & BASE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: #1a1a1a;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--text-color);
+            color: #fff;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 1px solid var(--text-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--text-color);
+            transform: translateY(-3px);
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        /* --- NAVIGATION --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: var(--nav-height);
+            background: rgba(252, 251, 249, 0.95);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* --- HERO SECTION --- */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-subtitle {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        #hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        /* Typewriter Cursor */
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            background-color: var(--text-color);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* --- ABOUT SECTION --- */
+        #about {
+            background-color: var(--secondary-bg);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background-color: #dcdcdc; /* Placeholder color */
+            position: relative;
+        }
+        
+        /* Decorative offset box for image */
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--text-color);
+            z-index: 0;
+        }
+        
+        .about-img-placeholder {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: #ccc;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            font-style: italic;
+        }
+
+        /* --- SERVICES SECTION --- */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: #666;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            padding: 40px;
+            border: 1px solid rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            background: #fff;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .service-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: rgba(0,0,0,0.05);
+            line-height: 1;
+            margin-bottom: -10px;
+            display: block;
+        }
+
+        /* --- PORTFOLIO --- */
+        #portfolio {
+            background-color: var(--secondary-bg);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            height: 300px;
+            background-color: #fff;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 44, 44, 0.9);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        /* --- TESTIMONIALS --- */
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .quote {
+            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .client {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- CONTACT --- */
+        .contact-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        input, textarea {
+            padding: 15px;
+            border: 1px solid #ccc;
+            background: transparent;
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .footer-socials {
+            margin-bottom: 20px;
+        }
+
+        .footer-socials a {
+            margin: 0 10px;
+            opacity: 0.7;
+        }
+
+        .footer-socials a:hover {
+            opacity: 1;
+        }
+
+        /* --- SCROLL ANIMATIONS --- */
+        .hidden {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 768px) {
+            #hero h1 { font-size: 2.5rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; } /* Ideally trigger a hamburger menu here */
+            .logo { margin: 0 auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">Sarah Philpott.</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Work</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container hero-content">
+            <span class="hero-subtitle hidden">Freelance Copywriter & Proofreader</span>
+            <h1 class="hidden">
+                Turning complex ideas into <br>
+                <span id="typewriter"></span><span class="cursor">|</span>
+            </h1>
+            <p class="hidden" style="margin-bottom: 30px; max-width: 500px;">
+                I help brands find their voice, polish their prose, and connect with their audience through words that work.
+            </p>
+            <a href="#contact" class="btn hidden">Start a Project</a>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image hidden">
+                    <div class="about-img-placeholder">
+                        [Insert Portrait of Sarah Here]
+                    </div>
+                </div>
+                <div class="about-text hidden">
+                    <h2>Refining the narrative.</h2>
+                    <br>
+                    <p>
+                        Hello! I'm Sarah Philpott. With over [X] years of experience in the publishing and marketing industries, I bridge the gap between creative storytelling and strategic communication.
+                    </p>
+                    <br>
+                    <p>
+                        Whether you need a second pair of eyes on a manuscript or a fresh voice for your brand's landing page, I bring precision, empathy, and a dash of flair to every project. I believe that good copy doesn't just sound nice—it drives action.
+                    </p>
+                    <br>
+                    <a href="#portfolio" style="border-bottom: 1px solid var(--accent-color);">See my past work &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section-padding">
+        <div class="container">
+            <div class="section-header hidden">
+                <h2>Services</h2>
+                <p>Tailored packages for authors, businesses, and creatives.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card hidden">
+                    <span class="service-number">01</span>
+                    <h3>Copywriting</h3>
+                    <p>Compelling website copy, newsletters, and ad scripts designed to convert browsers into buyers. I capture your brand's unique tone of voice.</p>
+                </div>
+                <div class="service-card hidden">
+                    <span class="service-number">02</span>
+                    <h3>Proofreading</h3>
+                    <p>The final polish. I catch the typos, grammar slips, and inconsistencies that spellcheck misses, ensuring your work is error-free.</p>
+                </div>
+                <div class="service-card hidden">
+                    <span class="service-number">03</span>
+                    <h3>Structural Editing</h3>
+                    <p>Looking at the big picture. I analyze flow, structure, and clarity to ensure your article or manuscript makes sense from start to finish.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="section-padding">
+        <div class="container">
+            <div class="section-header hidden">
+                <h2>Selected Work</h2>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item hidden">
+                    <div style="width:100%; height:100%; background:#ddd; display:flex; align-items:center; justify-content:center;">[Project Image]</div>
+                    <div class="portfolio-overlay">
+                        <h3>Tech Startup Launch</h3>
+                        <p>Web Copy & UX Writing</p>
+                    </div>
+                </div>
+                <div class="portfolio-item hidden">
+                    <div style="width:100%; height:100%; background:#d0d0d0; display:flex; align-items:center; justify-content:center;">[Project Image]</div>
+                    <div class="portfolio-overlay">
+                        <h3>Lifestyle Magazine</h3>
+                        <p>Feature Article Editing</p>
+                    </div>
+                </div>
+                <div class="portfolio-item hidden">
+                    <div style="width:100%; height:100%; background:#c4c4c4; display:flex; align-items:center; justify-content:center;">[Project Image]</div>
+                    <div class="portfolio-overlay">
+                        <h3>Organic Skincare</h3>
+                        <p>Product Descriptions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding">
+        <div class="container contact-wrapper hidden">
+            <div class="section-header">
+                <h2>Let's have a word.</h2>
+                <p>Ready to polish your project? Fill out the form below or email me at <a href="mailto:sarah@example.com" style="color:var(--accent-color)">sarah@example.com</a>.</p>
+            </div>
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="text" placeholder="Subject">
+                <textarea rows="5" placeholder="Tell me about your project..." required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-socials">
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter/X</a>
+                <a href="#">Instagram</a>
+            </div>
+            <p>&copy; 2024 Sarah Philpott. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 1. TYPEWRITER EFFECT
+        const textElement = document.getElementById('typewriter');
+        const phrases = ['compelling stories.', 'persuasive copy.', 'perfect grammar.'];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typeSpeed = 100;
+
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                typeSpeed = 50; // Deleting is faster
+            } else {
+                textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                typeSpeed = 100; // Typing speed
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                typeSpeed = 2000; // Pause at end of word
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500; // Pause before new word
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        document.addEventListener('DOMContentLoaded', type);
+
+        // 2. SCROLL ANIMATIONS (Intersection Observer)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, observerOptions);
+
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
