@@ -112,6 +112,9 @@
             gap: 40px;
         }
 
+        #cymraeg {
+            font-weight: 700;
+        }
         .nav-links a {
             font-size: 0.9rem;
             text-transform: uppercase;
@@ -205,6 +208,15 @@
             z-index: 0;
         }
         
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Crops/scales image to fill box nicely */
+            object-position: center; /* Centers the image */
+            position: relative;
+            z-index: 1;
+        }
+
         .about-img-placeholder {
             position: relative;
             width: 100%;
@@ -406,8 +418,9 @@
                 <ul class="nav-links">
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Work</a></li>
+                    <li><a href="#portfolio">Clients</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li id="cymraeg"><a href="#cymraeg">Cymraeg</a></li>
                 </ul>
             </nav>
         </div>
@@ -415,13 +428,12 @@
 
     <section id="hero">
         <div class="container hero-content">
-            <span class="hero-subtitle hidden">Freelance Copywriter & Proofreader</span>
+            <span class="hero-subtitle hidden">Communications, Copywriting & Proofreading in Welsh and English</span>
             <h1 class="hidden">
-                Turning complex ideas into <br>
                 <span id="typewriter"></span><span class="cursor">|</span>
             </h1>
             <p class="hidden" style="margin-bottom: 30px; max-width: 500px;">
-                I help brands find their voice, polish their prose, and connect with their audience through words that work.
+                Tell your story, reach your audience, have an impact. 
             </p>
             <a href="#contact" class="btn hidden">Start a Project</a>
         </div>
@@ -431,20 +443,21 @@
         <div class="container">
             <div class="about-grid">
                 <div class="about-image hidden">
-                    <div class="about-img-placeholder">
-                        [Insert Portrait of Sarah Here]
-                    </div>
+                    <img src="sarah.jpeg">
                 </div>
                 <div class="about-text hidden">
                     <h2>Refining the narrative.</h2>
                     <br>
-                    <p>
-                        Hello! I'm Sarah Philpott. With over [X] years of experience in the publishing and marketing industries, I bridge the gap between creative storytelling and strategic communication.
-                    </p>
+                    <p>Lost for words? Say hello to your new best friend.</p>
                     <br>
-                    <p>
-                        Whether you need a second pair of eyes on a manuscript or a fresh voice for your brand's landing page, I bring precision, empathy, and a dash of flair to every project. I believe that good copy doesn't just sound nice—it drives action.
-                    </p>
+                    <p>I’m Sarah, a bilingual proofreader and copywriter who lives in not-so-sunny south Wales.</p>
+                    <br>
+                    <p>Over the past fifteen years, I have helped people and organisations in Wales and the UK to shape their messages, develop and deliver communications strategies, and ensure that no matter whether in Welsh or English, their words have the impact they want.</p>
+                    <br>
+                    <p>I have worked with partners caross the public and private sectors, in education and with charities.</p>
+                    <br>
+                    <p>I pride myself on offering excellent customer service and a personal touch – and I’m happy to work in English, Welsh or both languages.</p>
+                    <p></p>
                     <br>
                     <a href="#portfolio" style="border-bottom: 1px solid var(--accent-color);">See my past work &rarr;</a>
                 </div>
@@ -462,18 +475,19 @@
             <div class="services-grid">
                 <div class="service-card hidden">
                     <span class="service-number">01</span>
-                    <h3>Copywriting</h3>
-                    <p>Compelling website copy, newsletters, and ad scripts designed to convert browsers into buyers. I capture your brand's unique tone of voice.</p>
+                    <h3>Communications, public relations and marketing</h3>
+                    <p>We all have a story we want to tell and I can help. I have over eight years’ experience in communications and marketing so whether it’s planning a launch event, creating a communications plan, taking the scary out of social media or getting you into the news, I’ve got your back. Whatever it is, I’ll create content that’s just right for you and your audience.</p>
                 </div>
                 <div class="service-card hidden">
                     <span class="service-number">02</span>
                     <h3>Proofreading</h3>
-                    <p>The final polish. I catch the typos, grammar slips, and inconsistencies that spellcheck misses, ensuring your work is error-free.</p>
+                    <p>Do you need your written work given the once over? Whether it’s print or online, I can edit your copy to ensure that it gives the right impression.
+I have experience of editing lots of different types of work including academic essays, dissertations and theses, websites and blog posts.</p>
                 </div>
                 <div class="service-card hidden">
                     <span class="service-number">03</span>
-                    <h3>Structural Editing</h3>
-                    <p>Looking at the big picture. I analyze flow, structure, and clarity to ensure your article or manuscript makes sense from start to finish.</p>
+                    <h3>Copywriting</h3>
+                    <p>Do you need words that wow? I’m your woman. If you’re after website copy, a press release that packs a punch or the right words for that killer advertising campaign, I can help. I’ve provided print and web copy for businesses (big and small), charities, publishing companies and more. Words with impact – as if you’d written them yourself.</p>
                 </div>
             </div>
         </div>
@@ -540,7 +554,7 @@
     <script>
         // 1. TYPEWRITER EFFECT
         const textElement = document.getElementById('typewriter');
-        const phrases = ['compelling stories.', 'persuasive copy.', 'perfect grammar.'];
+        const phrases = ['Make the right impression.', 'Connect with your audience.', 'Have an impact.'];
         let phraseIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
